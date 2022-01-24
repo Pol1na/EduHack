@@ -4,7 +4,6 @@ from django.urls import reverse
 
 class Book(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название книги')
-    description = models.TextField(blank=True, max_length=300, verbose_name='Описание книги')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     genre = models.ManyToManyField('Genre', verbose_name='Жанры')
     download_amount = models.IntegerField(default=0, verbose_name='Количество скачиваний')
@@ -12,7 +11,7 @@ class Book(models.Model):
     url_to_download = models.TextField(max_length=300, default=None, verbose_name='Ссылка на скачивание')
 
     def get_absolute_url(self):
-        return reverse('view_book', kwargs={"pk": self.pk}) # !!
+        return reverse('home') # !!
 
     def __str__(self):
         return self.name

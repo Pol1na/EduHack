@@ -3,7 +3,7 @@ from .models import Book, Genre, Author
 
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'description', 'photo', 'download_amount')
+    list_display = ('id', 'name', 'photo', 'download_amount')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
 

@@ -28,7 +28,7 @@
 <body class="u-body">
 <header class="u-align-center-xs u-border-1 u-border-grey-25 u-clearfix u-header u-header" id="sec-9c34">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <form action="{% url 'search' %}" method="get"
+        <form action="#" method="get"
               class="u-border-1 u-border-grey-15 u-expanded-width-xs u-search u-search-right u-search-1">
             <button class="u-search-button" type="submit">
             <span class="u-search-icon u-spacing-10 u-text-grey-40">
@@ -110,9 +110,10 @@
                     </div>
                     {% endfor %}
                 </div>
+                {% if request.user.is_authentificated %}
                 <a class="u-border-2 u-border-hover-palette-1-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-palette-4-dark-1 u-radius-50 u-white u-btn-1"
-                   href="{% url 'add_book' %}">Добавить книгу</a>
-
+                        href="{% url 'add_book' %}">Добавить книгу</a>
+                {% endif %}
             </div>
         </div>
     </div>
