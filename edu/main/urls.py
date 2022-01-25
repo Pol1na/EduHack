@@ -3,9 +3,9 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', HomeBook.as_view(), name='home'),
-    path('search/', SearchResultBookView.as_view(), name='search'),
-    path('add_book/', CreateBook.as_view(), name='add_book'),
+    path('', index, name='index'),
+    # path('library/search/', SearchResultBookView.as_view(), name='search'),
+    # path('library/add_book/', CreateBook.as_view(), name='add_book'),
     # path('register/', register, name="register"),
     # path('login/', login, name="login"),
     # path('cat/<int:category_id>/', NewsByCategory.as_view(), name='category'),
