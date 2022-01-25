@@ -1,5 +1,4 @@
  .u-section-1 {
-  background-image: url("images/jh.jpg");
   background-position: 50% 50%;
   min-height: 686px;
 }
@@ -50,7 +49,7 @@
 .u-section-1 .u-image-1 {
   min-height: 686px;
   pointer-events: auto;
-  background-image: url("images/5807340-min.png");
+ /* background-image: url("images/5807340-min.png"); */
   background-position: 0% 50%;
 }
 
