@@ -3,7 +3,9 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('register/', register, name='register'),
+    #path('register_done/', register, name='register'),
+    path('login/', user_login, name='login'),
     # path('register/', index, name='register'),
     # path('library/search/', SearchResultBookView.as_view(), name='search'),
     # path('library/add_book/', CreateBook.as_view(), name='add_book'),

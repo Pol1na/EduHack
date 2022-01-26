@@ -6,7 +6,7 @@ class Book(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название книги')
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     genre = models.ManyToManyField('Genre', verbose_name='Жанры')
-    download_amount = models.IntegerField(default=0, verbose_name='Количество скачиваний')
+    download_amount  = models.IntegerField(default=0, verbose_name='Количество скачиваний')
     author = models.ManyToManyField('Author', verbose_name='Автор')
     url_to_download = models.TextField(max_length=300, default=None, verbose_name='Ссылка на скачивание')
 
