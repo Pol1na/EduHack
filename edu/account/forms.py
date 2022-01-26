@@ -5,8 +5,11 @@ from django.contrib.auth.models import User
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(widget = forms.TextInput(attrs={'class':'u-border-1 u-border-grey-30 u-input '
+                                                                 'u-input-rectangle '
+                                                              'u-white'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'u-border-1 u-border-grey-30 u-input '
+                                                                         'u-input-rectangle u-white'}))
 
 
 class UserRegistrationForm(forms.ModelForm):
