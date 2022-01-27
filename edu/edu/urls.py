@@ -9,7 +9,7 @@ urlpatterns = [
     path('library/', include('library.urls')),
     path('', include('main.urls')),
     path('account/', include('account.urls')),
-    path('account/', include('django.contrib.auth.urls')),  # Добавили новый маршрут
+    #path('account/', include('django.contrib.auth.urls')),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,6 +6,7 @@ from .models import Book, Author, Genre
 from django.db.models import Q
 from .forms import BookForm
 
+
 # from .forms import BookForm
 
 
@@ -39,7 +40,8 @@ class SearchResultBookView(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-#LoginRequiredMixin
+
+# LoginRequiredMixin
 class CreateBook(CreateView):
     form_class = BookForm
     template_name = 'library/add_book.html'
