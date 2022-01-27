@@ -4,12 +4,21 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(widget = forms.TextInput(attrs={'class':'u-border-1 u-border-grey-30 u-input '
-                                                                 'u-input-rectangle '
-                                                              'u-white'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'u-border-1 u-border-grey-30 u-input '
-                                                                         'u-input-rectangle u-white'}))
+class LoginForm(forms.ModelForm):
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'u-border-1 u-border-grey-30 '
+                                                                                     'u-input '
+                                                                                     'u-input-rectangle '
+                                                                                     'u-white', 'type': 'text',
+                                                                            'placeholder': 'Введите ваш логин',
+                                                                            'id': 'name-ab3c',
+                                                                            'name': 'name'}))
+    password = forms.CharField(label='Пароль',widget=forms.PasswordInput(attrs={'class': 'u-border-1 u-border-grey-30 \
+            u-input '
+                                                                                          'u-input-rectangle u-white',
+                                                                                 'type': "password",
+                                                                                 'placeholder': "Введите пароль",
+                                                                                 'id': "password-ab3c",
+                                                                                 'name': "password"}))
 
 
 class UserRegistrationForm(forms.ModelForm):
