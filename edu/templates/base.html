@@ -36,12 +36,20 @@
         <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home' %}">Библиотека</a></li>
         <li class="u-nav-item"><a href="" class="u-button-style u-nav-link">Моя школа</a></li>
         <li class="u-nav-item"><a href="" class="u-button-style u-nav-link">Предметы</a></li>
-        <li class="u-nav-item"><a href="{% url 'register' %}"
+        {% if request.user.is_authenticated %}
+  <li class="u-navitem">
+      <a href="#"
+                                  class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Здравствуй, {{ user.username }}</a>
+  </li>
+{% else %}
+  <li class="u-nav-item"><a href="{% url 'register' %}"
                                   class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Регистрация</a>
         </li>
         <li class="u-nav-item"><a href="{% url 'login' %}"
                                   class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">Войти</a>
         </li>
+{% endif %}
+
     </ul>
 </nav>
 {% block content %}CONTENT{% endblock %}
