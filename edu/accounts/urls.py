@@ -3,11 +3,11 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('register/', CreateUser.as_view(), name='register'),
+    path('register/', SignUpView.as_view(), name='register'),
     # path('register_done/', register, name='register'),
     # path('login/', LoginUser.as_view(), name='login'),
     path('login/', user_login, name='login'),
-    path('test/', test, name='test'),
+    # path('test/', test, name='test'),
     # path('register/', index, name='register'),
     # path('library/search/', SearchResultBookView.as_view(), name='search'),
     # path('library/add_book/', CreateBook.as_view(), name='add_book'),
