@@ -20,6 +20,7 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
+
     class Meta:
         verbose_name = 'Город'
         verbose_name_plural = 'Города'
@@ -32,11 +33,11 @@ class School(models.Model):
 
     def __str__(self):
         return self.name
+
     class Meta:
         verbose_name = 'Школа'
         verbose_name_plural = 'Школы'
         ordering = ['name']
-
 
 
 class CustomUser(AbstractUser):
