@@ -30,25 +30,27 @@
 <body class="u-body">
 <nav class="top-menu">
     <a class="navbar-logo" href="{% url 'index' %}"><img src="{% static 'images/seal-icon_36966.png' %}" height=70px
-                                              weight=70px></a>
+                                                         weight=70px></a>
     <ul class="menu-main">
         <li class="u-nav-item"><a href="" class="u-button-style u-nav-link">Журнал</a></li>
         <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home' %}">Библиотека</a></li>
         <li class="u-nav-item"><a href="" class="u-button-style u-nav-link">Моя школа</a></li>
         <li class="u-nav-item"><a href="" class="u-button-style u-nav-link">Предметы</a></li>
         {% if request.user.is_authenticated %}
-  <li class="u-navitem">
-      <a href="#"
-                                  class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Здравствуй, {{ user.username }}</a>
-  </li>
-{% else %}
-  <li class="u-nav-item"><a href="{% url 'register' %}"
+        <li class="u-navitem">
+            <a href="#"
+               class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Здравствуй,
+                {{ user.username }}</a>
+        </li>
+        <li class="u-navitem"><a href="{% url 'logout' %}" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Выйти</a></li>
+        {% else %}
+        <li class="u-nav-item"><a href="{% url 'register' %}"
                                   class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Регистрация</a>
         </li>
         <li class="u-nav-item"><a href="{% url 'login' %}"
                                   class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-2">Войти</a>
         </li>
-{% endif %}
+        {% endif %}
 
     </ul>
 </nav>
