@@ -4,11 +4,27 @@ from django.db import models
 class Subject(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название предмета')
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Предмет'
+        verbose_name_plural = 'Предметы'
+        ordering = ['name']
+
 
 class SchoolClass(models.Model):
     number = models.CharField(max_length=2, verbose_name='Номер класса')
     letter = models.CharField(max_length=1, verbose_name='Буква класса')
     school = models.ForeignKey('accounts.school', on_delete=models.CASCADE, verbose_name='Буква класса')
+
+    def __str__(self):
+        return f'{self.number}{self.letter}'
+
+    class Meta:
+        verbose_name = 'Класс'
+        verbose_name_plural = 'Классы'
+        ordering = ['name']
 
 
 class Teacher(models.Model):
@@ -37,7 +53,13 @@ class Marks(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, verbose_name='Учитель')
     date = models.DateField(auto_now_add=True, verbose_name='Дата оценки')
     mark = models.CharField(max_length=1, verbose_name='Оценка')
+    def __str__(self):
+        return self.mark
 
+    class Meta:
+        verbose_name = 'Оценка'
+        verbose_name_plural = 'Оценки'
+        ordering = ['date']
 
 class Parent(models.Model):
     user = models.OneToOneField('accounts.customuser', on_delete=models.CASCADE, primary_key=True,
