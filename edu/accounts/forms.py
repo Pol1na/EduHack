@@ -53,11 +53,11 @@ class CustomUserCreationForm(UserCreationForm):
                                                       'u-input-rectangle '
                                                       'u-white', 'type': 'text',
                                              'placeholder': 'Введите вашу школу'}),
-            'role': forms.SelectMultiple(attrs={'class': 'u-border-1 u-border-grey-30 '
-                                                         'u-input '
-                                                         'u-input-rectangle '
-                                                         'u-white', 'type': 'text',
-                                                'placeholder': 'Выберите роль'}),
+            'role': forms.Select(attrs={'class': 'u-border-1 u-border-grey-30 '
+                                                 'u-input '
+                                                 'u-input-rectangle '
+                                                 'u-white', 'type': 'text',
+                                        'placeholder': 'Выберите роль'}),
         }
 
 

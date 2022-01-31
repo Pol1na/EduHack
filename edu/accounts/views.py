@@ -8,6 +8,9 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm  # add this
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
+
 
 
 class SignUpView(CreateView):
@@ -17,9 +20,13 @@ class SignUpView(CreateView):
 
     def post(self, request, *args, **kwargs):
         form = CustomUserCreationForm(request.POST)
+        print(form.errors)
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
+            cd = form.cleaned_data
+            user = authenticate(username=cd['username'], password=cd['password1'])
+            login(request, user)
             return redirect('index')
         else:
             return render(request, self.template_name, {'form': form})
@@ -45,12 +52,9 @@ def user_login(request):
     return render(request, 'login.html', {'form': form})
 
 
-def test(request):
-    return render(
-        request,
-        'test.html',
-    )
-
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 #
 # def login(request):
