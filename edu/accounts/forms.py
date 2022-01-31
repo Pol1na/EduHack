@@ -48,7 +48,7 @@ class CustomUserCreationForm(UserCreationForm):
                                                             'u-input-rectangle '
                                                             'u-white', 'type': 'text',
                                                    'placeholder': 'Введите ваш пароль'}),
-            'school': forms.TextInput(attrs={'class': 'u-border-1 u-border-grey-30 '
+            'school': forms.Select(attrs={'class': 'u-border-1 u-border-grey-30 '
                                                       'u-input '
                                                       'u-input-rectangle '
                                                       'u-white', 'type': 'text',

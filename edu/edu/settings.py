@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'library.apps.LibraryConfig',
     'main.apps.MainConfig',
     'accounts.apps.AccountsConfig',
+    'myschool.apps.MyschoolConfig',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '1111',
         'HOST': 'localhost',
-        'PORT': '3308',
+        'PORT': '3306',
     }
 }
 
