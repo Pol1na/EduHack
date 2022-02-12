@@ -1,0 +1,297 @@
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	color: black;
+	font-size: 16px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 0;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+select {
+    margin-top: 20px;
+	margin-left: 20px;
+	box-shadow: rgba(113, 113, 113, 0.15) -5px -5px 11px,
+	rgba(0, 0, 0, 0.15) 5px 5px 11px;
+	width: 395px;
+	display: flex;
+	align-items: center;
+	height: 45px;
+	margin-bottom: 28px;
+	margin-right: auto;
+	margin-left: auto;
+	background: transparent;
+	border: none;
+    border-radius: 20px;
+	text-indent: 20px;
+	color: #B2BECD;
+	font-size: 25px;
+	outline: 0;
+}
+
+h2 {
+	font-size: 50px;
+	margin-bottom: 58px;
+}
+
+h3 {
+	font-size: 25px;
+	margin-bottom: 28px;
+}
+
+a {
+	text-decoration: none;
+}
+
+section {
+	padding-top: 50px	
+}
+
+p {
+	margin: 0;
+}
+
+ul, li {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 1170px;
+	/*позиционирование по центру*/
+	margin: 0 auto; 
+}
+
+.header {
+	background: url('../img/menu.jpg') no-repeat center top / cover;
+	padding-top: 57px;
+	color: #fff;
+	padding-bottom: 57px;
+}
+
+header a {
+	color: #fff;
+}
+
+.logo {
+	margin-right: 69px;
+}
+
+.menu {
+	display: flex;
+}
+
+.menu li a {
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+}
+
+.menu li a:hover {
+	border-bottom: 1px solid #fff;
+}
+
+.menu li {
+	margin-right: 40px;
+}
+
+.tel {
+	font-size: 17px;
+	margin-left: auto;
+	letter-spacing: 0.1em;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.offer {
+	text-transform: uppercase;
+	margin-top: 216px;
+}
+
+.offer p {
+	font-size: 30px;
+	letter-spacing: 0.1em;
+}
+
+.offer h1 {
+	font-size: 100px;
+	margin-bottom: 19px;
+	margin-top: -9px;
+	letter-spacing: 0.02em
+}
+
+.btn {
+	display: block;
+	font-size: 17px;
+	text-align: center;
+	letter-spacing: 0.1em;
+	padding: 15px 15px;
+	border: 1px solid black;
+	width: 250px;
+	transition: all 0.5s ease;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	background:white;
+}
+
+.btn:hover {
+	background: black;
+    color: white;
+}
+
+.login-area {
+	display: block;
+	text-align: center;
+}
+
+.login-area p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	text-align: center;
+	line-height: 1.62em;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.login-area h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 25px;
+	margin-left: 20px;
+	text-transform: none;
+}
+
+
+.gallery {
+	margin-top: 67px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.gallery img {
+	transition: all 0.5s ease;
+}
+
+.gallery img:hover {
+	box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+	transform: scale(1.1);
+}
+
+.footer-text {
+	font-size: 15px;
+	font-family: 'Open Sans', sans-serif;
+	display: flex;
+	padding: 114px 0;
+	color: black;
+
+}
+
+.footer-text p {
+	margin-right: 67px;
+}
+
+.loginbtn {
+	display: block;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 0.1em;
+	padding: 10px 10px;
+	border: 1px solid #fff;
+	width: 150px;
+	transition: all 0.5s ease;
+	margin-left: auto;
+}
+
+.loginbtn:hover {
+	background: #fff;
+    color: #000;
+}
+/*Ебаное поле введите пароль
+От сих */
+.input-wrapper {
+	margin-top: 20px;
+	margin-left: 20px;
+	box-shadow: rgba(113, 113, 113, 0.15) -5px -5px 11px,
+	rgba(0, 0, 0, 0.15) 5px 5px 11px;
+	width: 395px;
+	display: flex;
+	align-items: center;
+	height: 45px;
+	margin-bottom: 25px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.input-wrapper input {
+	background: transparent;
+	border: none;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	text-indent: 20px;
+	color: #B2BECD;
+	font-size: 25px;
+	outline: 0;
+
+}
+.input-icon {
+	width: 20px;
+	margin-right: 20px;
+	border-radius: 50px;
+	padding: 3px 6px;
+	cursor: pointer;
+	transition: all .4s ease;
+	align-items: center;
+}
+.input-icon.selected {
+	background-color: #2d2d2d;
+}
+.input-icon img{
+	max-width: 100%;
+}
+::-webkit-input-placeholder {
+	color: #B2BECD;
+}
+.input-wrapper-login {
+	margin-top: 20px;
+	margin-left: 20px;
+	box-shadow: rgba(113, 113, 113, 0.15) -5px -5px 11px,
+	rgba(0, 0, 0, 0.15) 5px 5px 11px;
+	width: 395px;
+	display: flex;
+	align-items: center;
+	height: 45px;
+	margin-bottom: 28px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.input-wrapper-login input {
+	background: transparent;
+	border: none;
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	text-indent: 20px;
+	color: #B2BECD;
+	font-size: 25px;
+	outline: 0;
+}
+
+.errorlist{
+    color: red;
+    font-family: 'Open Sans';
+    font-size: 10px;
+}

@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '1111',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '3308',
     }
 }
 
@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
+FILE_PATH_FIELD_DIRECTORY = os.path.join(BASE_DIR, 'media')
 
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)

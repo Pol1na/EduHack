@@ -10,7 +10,7 @@ from django.contrib.auth.forms import AuthenticationForm  # add this
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-
+from myschool.models import *
 
 
 class SignUpView(CreateView):
@@ -24,6 +24,12 @@ class SignUpView(CreateView):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
+            if user.role_id == 1:
+                Teacher.objects.create(pk = user.pk)
+            elif user.role_id == 2:
+                Student.objects.create(pk = user.pk)
+            elif user.role_id == 3:
+                Parent.object.create(pk = user.pk)
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password1'])
             login(request, user)

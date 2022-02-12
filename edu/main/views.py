@@ -5,5 +5,5 @@ from django.views.generic import ListView, DetailView, CreateView
 def index(request):
     return render(
         request,
-        '_index.html',
+        '_indexx.html',
     )
