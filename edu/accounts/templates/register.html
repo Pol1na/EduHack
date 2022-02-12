@@ -4,23 +4,51 @@
 {% block style %}
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>Библиотека</title>
-<link rel="stylesheet" href="{% static 'css/main_styles.css' %}" media="screen">
-<link rel="stylesheet" href="{% static 'css/accounts.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'css/registration.css' %}" media="screen">
 <script class="u-script" type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}" defer=""></script>
 <script class="u-script" type="text/javascript" src="{% static 'js/main_js.js' %}" defer=""></script>
 {% endblock %}
 
 {% block content %}
+<section id="about" class="about">
+    <div class="container">
+        <div class="login-area">
+            <form method="post" class="u-clearfix u-form-spacing-10 u-inner-form" style="padding: 10px;">
+                {% csrf_token %}
+                <p>{{ form.name.label_tag }}</p>
+                <div class="input-wrapper-login">{{ form.name }}</div>
+                <p>{{ form.last_name.label_tag }}</p>
+                <div class="input-wrapper-login">{{ form.last_name }}</div>
+                <p>{{ form.patronymic.label_tag }}</p>
+                <div class="input-wrapper-login">{{ form.patronymic }}</div>
+                <p>{{ form.email.label_tag }}</p>
+                <div class="input-wrapper-login">{{ form.email }}</div>
+                <p>{{ form.phone_number.label_tag }}</p>
+                <div class="input-wrapper-login">{{ form.phone_number }}</div>
+                <p>{{ form.username.label_tag }}</p>
+                <div class="input-wrapper-login">{{ form.username }}</div>
+                <p>{{ form.school.label_tag }}</p>
+                <div>{{ form.school }}</div>
+                <p>{{ form.role.label_tag }}</p>
+                <div>{{ form.role }}</div>
+                <p>Пароль</p>
+                <div class="input-wrapper-login">{{ form.password1 }}</div>
+                <p>Повторите пароль</p>
+                <div class="input-wrapper-login">{{ form.password2 }}</div>
 
-<form method="post" class="u-clearfix u-form-spacing-10 u-inner-form" style="padding: 10px;">
-    {% csrf_token %}
-    {% for field in form %}
-    <div class="u-form-email u-form-group" style="margin: 5px;">
-        <label class="u-label">{{ field.label_tag }}</label>
-        <div>{{ field }}</div>
+
+                <button type="submit" class="btn">Зарегистрироваться</button>
+                {% for field in form %}
+                {{ field.errors.as_ul }}
+                {% endfor %}
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                {{ error }}
+                {% endfor %}
+                {% endif %}
+            </form>
+        </div>
     </div>
-    {% endfor %}
-    <button type="submit">Register</button>
-</form>
+</section>
 
 {% endblock %}

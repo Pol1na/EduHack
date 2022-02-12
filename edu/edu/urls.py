@@ -9,6 +9,7 @@ urlpatterns = [
     path('library/', include('library.urls')),
     path('', include('main.urls')),
     path('accounts/', include('accounts.urls')),
+    path('school/', include('myschool.urls')),
     # path('accounts/', include('django.contrib.auth.urls')),
 
 ]
