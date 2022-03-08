@@ -17,7 +17,7 @@ class Subject(models.Model):
 class SchoolClass(models.Model):
     number = models.CharField(max_length=2, verbose_name='Номер класса')
     letter = models.CharField(max_length=1, verbose_name='Буква класса')
-    school = models.ForeignKey('accounts.school', on_delete=models.CASCADE, verbose_name='Буква класса')
+    school = models.ForeignKey('accounts.school', on_delete=models.CASCADE, verbose_name='Школа')
 
     def __str__(self):
         return f'{self.number}{self.letter}'
@@ -32,6 +32,7 @@ class Teacher(models.Model):
     user = models.OneToOneField('accounts.customuser', on_delete=models.CASCADE, primary_key=True,
                                 verbose_name='Пользователь')
     school_class = models.ForeignKey(SchoolClass, default=1, on_delete=models.CASCADE, verbose_name='Класс.рук')
+    school = models.ForeignKey('accounts.school', on_delete=models.CASCADE, default=1 ,verbose_name='Школа')
     subject = models.ManyToManyField(Subject, verbose_name='Преподаваемые предметы', blank=True)
     work_exp = models.CharField(max_length=50, verbose_name='Стаж работы', blank=True)
     achievement = models.CharField(max_length=500, verbose_name='Достижения', blank=True)
@@ -39,7 +40,7 @@ class Teacher(models.Model):
     is_boss = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.user.name}{self.user.last_name}'
+        return f'{self.user.name} {self.user.last_name}'
 
     class Meta:
         verbose_name = 'Учитель'
@@ -85,6 +86,13 @@ class Parent(models.Model):
                                 verbose_name='Пользователь')
     student = models.ManyToManyField(Student, verbose_name='Ребёнок')
 
+    def __str__(self):
+        return f"{self.user.name} {self.user.last_name}"
+
+    class Meta:
+        verbose_name = 'Родитель'
+        verbose_name_plural = 'Родители'
+
 
 class Homework(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, verbose_name='По какому предмету д/з')
@@ -121,8 +129,18 @@ class HomeworkForStudent(models.Model):
         verbose_name_plural = 'Домашние задания для ученика'
         ordering = ['homework']
 
+
 class SchoolCab(models.Model):
-    name = models.CharField(max_length = 10, verbose_name = 'Номер кабинета')
+    name = models.CharField(max_length=10, verbose_name='Номер кабинета')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Кабинет'
+        verbose_name_plural = 'Кабинеты'
+        ordering = ['name']
+
 
 class Schedule(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, verbose_name='Урок')
@@ -130,4 +148,12 @@ class Schedule(models.Model):
     number_lesson = models.CharField(max_length=3, verbose_name='Номер урока')
     school_class = models.ForeignKey(SchoolClass, on_delete=models.CASCADE, verbose_name='Класс')
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, verbose_name='Преподаватель')
-    school_cab = models.ForeignKey(SchoolCab, on_delete = models.CASCADE, verbose_name = 'Кабинет')
+    school_cab = models.ForeignKey(SchoolCab, on_delete=models.CASCADE, verbose_name='Кабинет')
+
+    def __str__(self):
+        return f"{self.subject.name} {self.date} {self.school_class}"
+
+    class Meta:
+        verbose_name = 'Расписание'
+        verbose_name_plural = 'Расписания'
+        ordering = ['date']

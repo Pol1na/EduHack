@@ -10,4 +10,6 @@ admin.site.register(Marks)
 admin.site.register(Parent)
 admin.site.register(Homework)
 admin.site.register(HomeworkForStudent)
+admin.site.register(SchoolCab)
+admin.site.register(Schedule)
 
